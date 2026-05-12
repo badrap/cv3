@@ -4,8 +4,6 @@
 
 CV3 enumerates the recurring, named patterns vendors use to deflect, delay, or retaliate against good-faith security disclosures - structured the way CWE enumerates weakness patterns, so researchers and coordinators can cite a specific ID rather than re-litigating the same dynamics from scratch every time.
 
-> **Acknowledgement:** The taxonomy data in this repository was researched and curated with the assistance of [Claude Opus 4.7](https://www.anthropic.com/claude) (Anthropic).
-
 ---
 
 ## Table of Contents
@@ -1245,3 +1243,5 @@ Related: CV3-068 (Public-Smear/Counter-PR), CV3-072 (Silent-Patching-No-Credit)
 This work is licensed under [Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/).
 
 SPDX-License-Identifier: `CC-BY-SA-4.0`
+
+> **Acknowledgement:** The taxonomy data in this repository was researched and curated with the assistance of [Claude Opus 4.7](https://www.anthropic.com/claude) (Anthropic).
