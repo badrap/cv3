@@ -2,17 +2,13 @@
 
 **A taxonomy of vendor dismissal patterns for legitimate vulnerability reports**
 
-CV3 enumerates the recurring, named patterns vendors use to deflect, delay, or retaliate against good-faith security disclosures - structured the way CWE enumerates weakness patterns, so researchers and coordinators can cite a specific ID rather than re-litigating the same dynamics from scratch every time.
-
-> **Acknowledgement:** The taxonomy data in this repository was researched and curated with the assistance of [Claude Opus 4.7](https://www.anthropic.com/claude) (Anthropic).
+Vendors deflect, delay, or retaliate against good-faith security disclosures. CV3 enumerates and names these patterns so researchers and coordinators can cite a specific ID rather than re-arguing recurring disclosure patterns every time.
 
 ---
 
 ## Table of Contents
 
 - [TL;DR](#tldr)
-- [Rationale](#rationale)
-- [Prior Art](#prior-art)
 - [The Taxonomy](#the-taxonomy)
   - [Critical Framing Note](#critical-framing-note)
   - [Category A - Compensating-Control Misuse](#category-a---compensating-control-misuse-cv3-001--cv3-010)
@@ -26,6 +22,8 @@ CV3 enumerates the recurring, named patterns vendors use to deflect, delay, or r
   - [Category I - Coordination Manipulation](#category-i---coordination-manipulation-cv3-070--cv3-074-cv3-083--cv3-087)
   - [Category J - Disinformation about the Bug Itself](#category-j---disinformation-about-the-bug-itself-cv3-075--cv3-078)
 - [Structural Conventions](#structural-conventions)
+- [Rationale](#rationale)
+- [Prior Art](#prior-art)
 - [License](#license)
 
 ---
@@ -35,41 +33,6 @@ CV3 enumerates the recurring, named patterns vendors use to deflect, delay, or r
 - **Vendors deflect legitimate vulnerability reports through a recognizable, repeating set of patterns** that fall into two broad families: technical dismissals (where engineering or risk arguments are misused to deny a real flaw) and process/legal deflections (where contracts, scope, communication, or law are weaponized against the reporter). This v0.1 enumerates **87 leaf-level patterns** across **10 top-level categories**, each grounded in a documented incident or in the disclosure literature.
 - **Substantial prior art exists, but none of it is a true "CV3"**: the Bugcrowd VRT, HackerOne report-state docs, OWASP Vulnerability Disclosure Cheat Sheet, CERT/CC's "Troubleshooting CVD" chapter, the disclose.io research-threats archive, and academic work by Moussouris, Matwyshyn, Pfefferkorn, and Weulen Kranenbarg et al. each cover slices of the problem, but no published taxonomy systematically enumerates *vendor evasion patterns* the way CWE enumerates weakness patterns. CV3 explicitly positions itself as complementing - not competing with - the VRT and disclose.io.
 - **The most useful framing for v0.1 is a flat, citable, ID-numbered list** organized by category, with each entry containing a name, a 1-2 sentence description, a representative pattern indicator, and a documented exemplar. That structure (a) supports the "CV3-042 right now" use case, (b) mirrors CWE's leaf-entry style, and (c) makes the taxonomy easy to extend through community pull requests in the disclose.io tradition.
-
----
-
-## Rationale
-
-**1. The problem is real, recurring, and largely unenumerated.** Coordinated Vulnerability Disclosure (CVD) is described by CERT/CC's *Guide to Coordinated Vulnerability Disclosure* as a "wicked problem," and CERT/CC publishes a "Troubleshooting CVD" chapter precisely because the same dysfunctions recur. EFF's Coders' Rights FAQ, Brookings ("America's anti-hacking laws pose a risk to national security"), and Riana Pfefferkorn's "Shooting the Messenger" (Stanford CIS, 2022) all document that vendors routinely "shoot the messenger" - but none of these works tries to enumerate the specific *patterns* of dismissal in a structured way.
-
-**2. Existing partial taxonomies are adjacent but distinct.** The Bugcrowd Vulnerability Rating Taxonomy (open-sourced 2017, currently v1.18) classifies *vulnerabilities* by priority, not vendor responses; HackerOne's report-state model has only five close states (Resolved / Informative / Not Applicable / Duplicate / Spam), which compresses a much richer space of dismissal patterns into opaque buckets; disclose.io's `research-threats` repo (continuing attrition.org's "Legal Threats Against Security Researchers" list) catalogs *individual incidents* without abstracting them into named patterns. CV3 fills the gap between incident archives and platform close-codes.
-
-**3. Famous incidents map cleanly onto a small set of recurring patterns.** Voatz vs. MIT (disputing scope, claiming "old version," attacking researcher motives, weaponizing CFAA via amicus brief), DJI vs. Finisterre (retroactive NDA, CFAA threat, scope ambiguity, "hacker" labeling), St. Jude vs. MedSec/Muddy Waters (defamation suit, "we use external auditors" deflection), Cellebrite vs. Signal (silent partial patch, "no real-life exploitation observed"), Missouri DESE/Parson (criminalizing the reporter, "hacker" label for F12), Talkspace, What3Words, and Zoom/Leitschuh (delayed patches, "quick fix" that wasn't) are all instances of just a dozen or so root patterns. This is what makes the taxonomy tractable.
-
-**4. AI-generated "slop" reports have shifted the legitimacy debate.** The closure of certain bounty programs after a flood of LLM-generated false reports is the inverse problem: it gives vendors a legitimate-sounding cover story ("we suspect AI slop") that can also be misused to dismiss real, careful reports. CV3 includes this pattern (CV3-053), with the explicit caveat that the dismissal is only an evasion when applied to a non-AI, well-documented report.
-
-**5. The legal landscape only partially helps researchers.** *Van Buren v. United States* (2021) narrowed the CFAA, and DOJ's 2022 charging policy explicitly disfavors prosecution of good-faith research, but Pfefferkorn (2022) shows that the CFAA's $5,000 "loss" threshold still allows civil suits where remediation costs alone qualify - meaning that "shoot-the-messenger" CFAA threats remain a live tool even where prosecution is unlikely. CV3 treats legal threats as a category in their own right (Category G).
-
----
-
-## Prior Art
-
-| Resource | What it covers | Gap CV3 fills |
-|---|---|---|
-| **Bugcrowd VRT** (github.com/bugcrowd/vulnerability-rating-taxonomy, v1.18) | Baseline severity ratings for vuln *classes* (P1-P5), including a documented "out-of-scope/won't-pay" list | Doesn't name *vendor behaviors*; rates bugs, not responses |
-| **HackerOne close-codes** (Resolved / Informative / Not Applicable / Duplicate / Spam) | Platform-level outcome categories | Coarse-grained; doesn't distinguish honest "Informative" from disingenuous "Informative" |
-| **Intigriti "Duplicate, related or known"** docs | Acknowledges programs marking reports as duplicates of internally known issues | Describes the mechanic, not the abuse pattern |
-| **OWASP Vulnerability Disclosure Cheat Sheet** | Best-practice guidance for both sides | Prescriptive, not descriptive of failure modes |
-| **CERT/CC Guide to CVD**, esp. "Troubleshooting CVD" | Catalogs problems like unresponsive vendors, multi-vendor coordination failures, branded-vuln dynamics | Closest existing work; uses prose rather than ID-numbered patterns |
-| **disclose.io / `research-threats` repo** (continuing attrition.org's "Legal Threats Against Security Researchers" list, FIN'd in May 2021) | Incident-level archive of legal threats | Incident catalog, not a pattern abstraction |
-| **EFF Coders' Rights Vulnerability Reporting FAQ** | Legal landscape and researcher protections | Legal advice, not evasion taxonomy |
-| **Pfefferkorn, "Shooting the Messenger" (Stanford CIS, 2022)** | CFAA "loss" threshold as retaliation tool | Single legal mechanism, deeply analyzed |
-| **Matwyshyn et al. (Northeastern; CDT 2018 report)** | CFAA/DMCA chilling effects | Field-level analysis, not pattern enumeration |
-| **Weulen Kranenbarg et al., "Don't shoot the messenger" (*Crime Science*, 2018)** | Criminological analysis of researcher-vendor dynamics | Theoretical framework |
-| **Moussouris (Luta Security) talks/interviews 2019-2024** | "Bug-bounty Botox," NDA-as-silencing, pile-of-unfixed-bugs critique | Industry critique, anecdotal pattern naming |
-| **Project Zero disclosure FAQ + 2025 "Reporting Transparency"** | 90+30 deadline policy, won't-fix derestriction policy | Researcher-side policy, not vendor patterns |
-
-CV3 has a clear niche. The closest analog is CERT/CC's "Troubleshooting CVD" chapter, but it is prose, not an ID-stable enumeration, and it focuses on *coordination problems* rather than on *vendor evasion patterns* specifically. CV3 explicitly cites VRT, HackerOne close-codes, and CERT/CC and positions itself as the missing "vendor-side" complement.
 
 ---
 
@@ -1238,6 +1201,39 @@ Related: CV3-068 (Public-Smear/Counter-PR), CV3-072 (Silent-Patching-No-Credit)
 5. **Crowdsourcing model.** Mirror Bugcrowd VRT and disclose.io: GitHub repo, open contribution guidelines, public changelog of additions and merges.
 6. **Explicit non-goals.** CV3 does *not* score severity (use VRT/CVSS), does *not* arbitrate individual disputes (use HackerOne/Bugcrowd mediation, CERT/CC), and does *not* make legal claims (defer to EFF / disclose.io).
 
+## Rationale
+
+**1. The problem is real, recurring, and largely unenumerated.** Coordinated Vulnerability Disclosure (CVD) is described by CERT/CC's *Guide to Coordinated Vulnerability Disclosure* as a "wicked problem," and CERT/CC publishes a "Troubleshooting CVD" chapter precisely because the same dysfunctions recur. EFF's Coders' Rights FAQ, Brookings ("America's anti-hacking laws pose a risk to national security"), and Riana Pfefferkorn's "Shooting the Messenger" (Stanford CIS, 2022) all document that vendors routinely "shoot the messenger" - but none of these works tries to enumerate the specific *patterns* of dismissal in a structured way.
+
+**2. Existing partial taxonomies are adjacent but distinct.** The Bugcrowd Vulnerability Rating Taxonomy (open-sourced 2017, currently v1.18) classifies *vulnerabilities* by priority, not vendor responses; HackerOne's report-state model has only five close states (Resolved / Informative / Not Applicable / Duplicate / Spam), which compresses a much richer space of dismissal patterns into opaque buckets; disclose.io's `research-threats` repo (continuing attrition.org's "Legal Threats Against Security Researchers" list) catalogs *individual incidents* without abstracting them into named patterns. CV3 fills the gap between incident archives and platform close-codes.
+
+**3. Famous incidents map cleanly onto a small set of recurring patterns.** Voatz vs. MIT (disputing scope, claiming "old version," attacking researcher motives, weaponizing CFAA via amicus brief), DJI vs. Finisterre (retroactive NDA, CFAA threat, scope ambiguity, "hacker" labeling), St. Jude vs. MedSec/Muddy Waters (defamation suit, "we use external auditors" deflection), Cellebrite vs. Signal (silent partial patch, "no real-life exploitation observed"), Missouri DESE/Parson (criminalizing the reporter, "hacker" label for F12), Talkspace, What3Words, and Zoom/Leitschuh (delayed patches, "quick fix" that wasn't) are all instances of just a dozen or so root patterns. This is what makes the taxonomy tractable.
+
+**4. AI-generated "slop" reports have shifted the legitimacy debate.** The closure of certain bounty programs after a flood of LLM-generated false reports is the inverse problem: it gives vendors a legitimate-sounding cover story ("we suspect AI slop") that can also be misused to dismiss real, careful reports. CV3 includes this pattern (CV3-053), with the explicit caveat that the dismissal is only an evasion when applied to a non-AI, well-documented report.
+
+**5. The legal landscape only partially helps researchers.** *Van Buren v. United States* (2021) narrowed the CFAA, and DOJ's 2022 charging policy explicitly disfavors prosecution of good-faith research, but Pfefferkorn (2022) shows that the CFAA's $5,000 "loss" threshold still allows civil suits where remediation costs alone qualify - meaning that "shoot-the-messenger" CFAA threats remain a live tool even where prosecution is unlikely. CV3 treats legal threats as a category in their own right (Category G).
+
+---
+
+## Prior Art
+
+| Resource | What it covers | Gap CV3 fills |
+|---|---|---|
+| **Bugcrowd VRT** (github.com/bugcrowd/vulnerability-rating-taxonomy, v1.18) | Baseline severity ratings for vuln *classes* (P1-P5), including a documented "out-of-scope/won't-pay" list | Doesn't name *vendor behaviors*; rates bugs, not responses |
+| **HackerOne close-codes** (Resolved / Informative / Not Applicable / Duplicate / Spam) | Platform-level outcome categories | Coarse-grained; doesn't distinguish honest "Informative" from disingenuous "Informative" |
+| **Intigriti "Duplicate, related or known"** docs | Acknowledges programs marking reports as duplicates of internally known issues | Describes the mechanic, not the abuse pattern |
+| **OWASP Vulnerability Disclosure Cheat Sheet** | Best-practice guidance for both sides | Prescriptive, not descriptive of failure modes |
+| **CERT/CC Guide to CVD**, esp. "Troubleshooting CVD" | Catalogs problems like unresponsive vendors, multi-vendor coordination failures, branded-vuln dynamics | Closest existing work; uses prose rather than ID-numbered patterns |
+| **disclose.io / `research-threats` repo** (continuing attrition.org's "Legal Threats Against Security Researchers" list, FIN'd in May 2021) | Incident-level archive of legal threats | Incident catalog, not a pattern abstraction |
+| **EFF Coders' Rights Vulnerability Reporting FAQ** | Legal landscape and researcher protections | Legal advice, not evasion taxonomy |
+| **Pfefferkorn, "Shooting the Messenger" (Stanford CIS, 2022)** | CFAA "loss" threshold as retaliation tool | Single legal mechanism, deeply analyzed |
+| **Matwyshyn et al. (Northeastern; CDT 2018 report)** | CFAA/DMCA chilling effects | Field-level analysis, not pattern enumeration |
+| **Weulen Kranenbarg et al., "Don't shoot the messenger" (*Crime Science*, 2018)** | Criminological analysis of researcher-vendor dynamics | Theoretical framework |
+| **Moussouris (Luta Security) talks/interviews 2019-2024** | "Bug-bounty Botox," NDA-as-silencing, pile-of-unfixed-bugs critique | Industry critique, anecdotal pattern naming |
+| **Project Zero disclosure FAQ + 2025 "Reporting Transparency"** | 90+30 deadline policy, won't-fix derestriction policy | Researcher-side policy, not vendor patterns |
+
+CV3 has a clear niche. The closest analog is CERT/CC's "Troubleshooting CVD" chapter, but it is prose, not an ID-stable enumeration, and it focuses on *coordination problems* rather than on *vendor evasion patterns* specifically. CV3 explicitly cites VRT, HackerOne close-codes, and CERT/CC and positions itself as the missing "vendor-side" complement.
+
 ---
 
 ## License
@@ -1245,3 +1241,5 @@ Related: CV3-068 (Public-Smear/Counter-PR), CV3-072 (Silent-Patching-No-Credit)
 This work is licensed under [Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/).
 
 SPDX-License-Identifier: `CC-BY-SA-4.0`
+
+> **Acknowledgement:** The taxonomy data in this repository was researched and curated with the assistance of [Claude Opus 4.7](https://www.anthropic.com/claude) (Anthropic).
