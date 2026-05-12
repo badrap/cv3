@@ -651,13 +651,15 @@ Related: CV3-044 (Black-Hole-Inbox), CV3-074 (Force-Through-Their-Bounty)
 
 **CV3-044 | Black-Hole-Inbox**
 
-Reports are acknowledged by autoresponder, then receive no further response - no triage confirmation, no status updates, no resolution.
+Reports sent to a documented security channel receive no substantive response. In the common variant, an autoresponder fires and provides a plausible-deniability surface ("we acknowledged receipt"); in the more extreme variant, even that is absent and the channel functions as a dead drop.
 
-*Pattern indicator:* Reporter receives a ticket number or automated "we'll look at this" reply, then silence.
+*Pattern indicator:* Report delivered to a documented, non-bouncing channel; at most an automated acknowledgment is received; no human engagement follows.
 
-Cosive's blog "Don't Shoot the Messenger" describes black-hole inboxes as a near-universal researcher experience. The autoresponder provides plausible deniability ("we acknowledged it") while the report is effectively ignored.
+Described as a near-universal researcher experience in Cosive's "Don't Shoot the Messenger".
 
-Related: CV3-043 (No-Security-Contact), CV3-045 (Ghosting-Post-Triage)
+**Does NOT apply when:** The reporter has not allowed a reasonable response window, the message failed delivery (bounce, DKIM/SPF/DMARC, attachment filtering), or the channel used was not the vendor's documented one.
+
+Related: CV3-043 (No-Security-Contact), CV3-045 (Ghosting-Post-Triage), CV3-079 (No-Support-Contract)
 
 ---
 
