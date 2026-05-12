@@ -1229,7 +1229,7 @@ Related: CV3-068 (Public-Smear/Counter-PR), CV3-072 (Silent-Patching-No-Credit)
 
 ## Structural Conventions
 
-1. **Stable IDs.** CV3-001 through CV3-087 (v0.1) should never be reused; deprecations get an explicit `DEPRECATED` flag, mirroring CWE's policy.
+1. **Stable IDs, evolving entries.** Once a CV3 ID has been assigned, it permanently refers to the same pattern. The textual content of an entry (description, pattern indicator, exemplars, "does NOT apply when" clauses, related-pattern links) may be clarified, expanded, or corrected over time; this is expected and encouraged as the literature and incident record grow. What may not change is the *identity* of the pattern an ID refers to. If a pattern's scope or meaning needs to shift substantively, the original ID is marked `DEPRECATED` with a pointer to a new ID, mirroring CWE's policy. ID assignment is not required to be contiguous or sequential.
 2. **One-pattern-per-leaf.** Resist the urge to combine related patterns (e.g., "WAF + Network Segmentation") into a single entry; they get cited separately.
 3. **Required fields:** Name, ID, Description (1-2 sentences), Pattern Indicator, Exemplar Incident with citation, Related Patterns, See-Also (CWE, CAPEC, ATT&CK where relevant).
 4. **Optional fields:** Counter-evidence checklist - what would make a given dismissal *legitimate* rather than evasive. Critical for fairness and to prevent CV3 from being used as a one-sided weapon. v0.1 ships this field for the most-abusable entries; all entries should have it by v1.0.
