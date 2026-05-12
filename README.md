@@ -2,7 +2,7 @@
 
 **A taxonomy of vendor dismissal patterns for legitimate vulnerability reports**
 
-CV3 enumerates the recurring, named patterns vendors use to deflect, delay, or retaliate against good-faith security disclosures - structured the way CWE enumerates weakness patterns, so researchers and coordinators can cite a specific ID rather than re-litigating the same dynamics from scratch every time.
+Vendors deflect, delay, or retaliate against good-faith security disclosures. CV3 enumerates and names these patterns so researchers and coordinators can cite a specific ID rather than re-arguing recurring disclosure patterns every time.
 
 ---
 
