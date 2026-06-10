@@ -12,7 +12,7 @@ The taxonomy follows the canonical order of a vulnerability disclosure:
 > And if it is, it isn't severe.  
 > And if it is, your report doesn't qualify.  
 > And if it does, a fix is on the roadmap.  
-> And if it never ships, you are the problem.  
+> And if it never ships, you are the problem, really.  
 > And if you continue to be a problem, you'll be hearing from our counsel.  
 
 ---
