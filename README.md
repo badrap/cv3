@@ -4,6 +4,17 @@
 
 Vendors deflect, delay, or retaliate against good-faith security disclosures. CV3 enumerates and names these patterns so researchers and coordinators can cite a specific ID rather than re-arguing recurring disclosure patterns every time.
 
+The taxonomy follows the canonical order of a vulnerability disclosure:
+
+> We never received your report.  
+> And if we did, it isn't really a bug.  
+> And if it is, it isn't exploitable.  
+> And if it is, it isn't severe.  
+> And if it is, your report doesn't qualify.  
+> And if it does, a fix is on the roadmap.  
+> And if it never ships, you are the problem.  
+> And if you say so in public, you'll be hearing from our counsel.  
+
 ---
 
 ## Table of Contents
